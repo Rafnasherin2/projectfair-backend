@@ -18,8 +18,9 @@ exports.register=async(req,res)=>{
             res.status(200).json(newUser)
         }
 
-    }catch(err){
-        res.status(401).json(err)
+    } catch (err) {
+        console.error('Error during registration:', err);
+        res.status(500).json({ message: 'Server error. Please try again later.', error: err.message });
     }   
 } 
 
